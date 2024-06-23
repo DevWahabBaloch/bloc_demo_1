@@ -2,45 +2,44 @@ import 'dart:developer';
 
 import 'package:bloc_demo_1/core/app_button.dart';
 import 'package:bloc_demo_1/core/di/service_locator.dart';
-import 'package:bloc_demo_1/features/auth/bloc/login_cubit.dart';
-import 'package:bloc_demo_1/features/auth/bloc/login_state.dart';
+import 'package:bloc_demo_1/features/settings/bloc/settings_cubit.dart';
+import 'package:bloc_demo_1/features/settings/bloc/settings_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginPage extends StatelessWidget {
-   LoginPage({super.key});
+class SettingsPage extends StatelessWidget {
+  SettingsPage({super.key});
 
-  final LoginCubit _loginCubit = sl<LoginCubit>();
+  final SettingsCubit _settingsCubit = sl<SettingsCubit>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
-        centerTitle: true,
+        title: const Text('Settings'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            BlocBuilder<LoginCubit, LoginState>(
-              bloc: _loginCubit,
+            BlocBuilder<SettingsCubit, SettingsState>(
+              bloc: _settingsCubit,
               builder: (context, state) {
-                if (state is LoginLoadingState) {
+                if (state is SettingsLoadingState) {
                   log('message: Loading state');
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
-                if (state is LoginFailureState) {
+                if (state is SettingsFailureState) {
                   log('message: Failure state');
                   return Text(
                     state.message,
                     style: const TextStyle(fontSize: 22.0),
                   );
                 }
-                if (state is LoginSuccessState) {
+                if (state is SettingsSuccessState) {
                   log('message: Success state');
                   return Text(
                     state.status,
@@ -57,7 +56,7 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 50.0),
             AppButton(
               onPressed: () {
-                _loginCubit.attemptToLogin();
+                _settingsCubit.attemptToSettings();
               },
               title: ' Tapp',
             ),
