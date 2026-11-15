@@ -1,16 +1,29 @@
-# bloc_demo_1
+# BLoC Demo: Login, Settings & DI
 
-A new Flutter project.
+Flutter app with splash, onboarding, login, dashboard and settings, using Cubit, get_it/injectable and SharedPreferences.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+A small multi-screen app that wires state management and dependency injection the way a production app would.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Splash, onboarding, login, dashboard and settings screens
+- One Cubit per feature with typed states
+- Generated dependency injection with **get_it + injectable**
+- Settings persisted with SharedPreferences
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech stack
+
+Flutter · Dart · flutter_bloc · get_it · injectable · shared_preferences
+
+## Getting started
+
+```bash
+flutter pub get
+flutter run
+```
+
+---
+
+Built by [Abdul Wahab](https://github.com/DevWahabBaloch), Senior Flutter Developer · [Portfolio](https://devwahabbaloch.web.app/)
